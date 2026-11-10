@@ -8,7 +8,10 @@
   --rain: #1E6FD9;
   --rain-light: #BFDcff;
   --warm: #E0500B;
-  --muted: 0.72;
+  /* E-Ink: Grau gibt es nur als Punktraster, dünne Striche zerfallen.
+     Deshalb kein halbtransparenter Text (--muted: 1) und überall Halbfett. */
+  --muted: 1;
+  font-weight: 600;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -105,7 +108,7 @@
   letter-spacing: -0.02em;
   white-space: nowrap;
 }
-.temp .deg { font-size: 0.4em; vertical-align: top; margin-left: 0.05em; font-weight: 400; }
+.temp .deg { font-size: 0.4em; vertical-align: top; margin-left: 0.05em; }
 .cond { font-size: calc(var(--u) * 3); font-weight: 600; }
 .minmax {
   display: flex;
@@ -157,7 +160,7 @@
 }
 .tile-value .raw { font-size: 0.86em; }
 .tile-value .unit { font-size: 0.75em; font-weight: 600; margin-left: 0.2em; }
-.tile-value .sep { margin: 0 0.15em; font-weight: 400; }
+.tile-value .sep { margin: 0 0.15em; }
 .tile-value .extra {
   display: inline-flex;
   align-items: center;
@@ -175,11 +178,11 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  font-size: calc(var(--u) * 1.65);
+  font-size: calc(var(--u) * 1.85);
 }
 .g-head { display: flex; justify-content: space-between; align-items: center; flex: 0 0 auto; }
-.g-title { font-weight: 600; font-size: calc(var(--u) * 1.75); }
-.g-legend { display: inline-flex; align-items: center; gap: 0.35em; opacity: 0.85; }
+.g-title { font-weight: 600; font-size: calc(var(--u) * 1.9); }
+.g-legend { display: inline-flex; align-items: center; gap: 0.35em; }
 .lg { display: inline-block; width: 1.4em; height: 0.55em; margin-left: 0.6em; }
 .lg-t { border-top: 0.22em solid var(--warm); height: 0; }
 .lg-p { background: var(--rain-light); border-top: 0.16em solid var(--rain); }
@@ -216,9 +219,9 @@
   position: absolute;
   bottom: 0.25em;
   transform: translateX(-50%);
-  color: var(--rain);
+  color: #0B3D91;
   font-weight: 600;
-  font-size: calc(var(--u) * 1.45);
+  font-size: calc(var(--u) * 1.75);
 }
 
 .g-x { position: relative; flex: 0 0 calc(var(--u) * 2.3); }
@@ -244,7 +247,7 @@
 .fc-day:first-child { border-left: none; }
 .fc-name { font-size: calc(var(--u) * 2.05); font-weight: 600; white-space: nowrap; }
 .fc-day.weekend .fc-name { text-decoration: underline; text-underline-offset: 0.15em; }
-.fc-date { font-weight: 400; font-size: 0.75em; margin-left: 0.3em; opacity: var(--muted); }
+.fc-date { font-size: 0.8em; margin-left: 0.3em; opacity: var(--muted); }
 .fc-mid {
   display: flex;
   align-items: center;
@@ -261,10 +264,9 @@
   display: flex;
   align-items: center;
   gap: 0.25em;
-  font-size: calc(var(--u) * 1.5);
+  font-size: calc(var(--u) * 1.8);
   white-space: nowrap;
 }
-.fc-sub { opacity: 0.85; }
 .fc-detail .dot { margin: 0 0.2em; }
 .fc-mini { width: 1.2em; height: 1.2em; }
 
@@ -274,8 +276,8 @@
 .portrait .fc-icon-wrap { height: calc(var(--u) * 8.5); }
 .portrait .fc-temps { flex-direction: row; align-items: baseline; gap: 0.4em; }
 .compact .fc-name { display: flex; flex-direction: column; align-items: center; line-height: 1; }
-.compact .fc-date { margin-left: 0; font-size: 0.62em; }
-.compact .fc-detail { font-size: calc(var(--u) * 1.45); }
+.compact .fc-date { margin-left: 0; font-size: 0.7em; }
+.compact .fc-detail { font-size: calc(var(--u) * 1.7); }
 
 /* ---------------- Fußzeile ---------------- */
 .foot {
@@ -283,8 +285,7 @@
   display: flex;
   justify-content: space-between;
   gap: calc(var(--u) * 1.5);
-  font-size: calc(var(--u) * 1.35);
-  opacity: 0.8;
+  font-size: calc(var(--u) * 1.6);
   white-space: nowrap;
   overflow: hidden;
 }

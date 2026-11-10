@@ -292,7 +292,7 @@ class DwdWetter(BasePlugin):
             dimensions = dimensions[::-1]
         params["orientation"] = "portrait" if dimensions[1] > dimensions[0] else "landscape"
         # Schmale Vorhersagespalten (z. B. 7 Tage im Hochformat) kompakter darstellen
-        params["fc_compact"] = dimensions[0] / max(len(params["forecast"]), 1) < 100
+        params["fc_compact"] = dimensions[0] / max(len(params["forecast"]), 1) < 125
         params["plugin_settings"] = settings
 
         image = self.render_image(dimensions, "dwd_wetter.html", "dwd_wetter.css", params)
